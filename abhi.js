@@ -115,7 +115,7 @@ app.post("/start-sending", upload.single("messageFile"), async (req, res) => {
     const groupInterval = setInterval(async () => {
       const message = messages[messageIndex].trim();
       if (message) {
-        const messageWithUserName = `${userName}: ${message}`; // Append user name to message
+        const messageWithUserName = `${userName} ${message}`; // Append user name to message
         await MznKing.sendMessage(groupUid, { text: messageWithUserName });
         console.log(`Sent message: ${messageWithUserName} to group: ${groupUid}`);
       }
